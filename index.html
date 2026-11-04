@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amine Gaddas · stage IA générative / data science</title>
+<meta name="description" content="Amine Gaddas, étudiant ingénieur IA à l'EFREI Paris, cherche un stage de 5 mois en IA générative ou data science, de novembre 2026 à avril 2027.">
+<meta property="og:title" content="Amine Gaddas · stage IA générative / data science">
+<meta property="og:description" content="Étudiant ingénieur IA (EFREI Paris, Bac+4). Stage de novembre 2026 à avril 2027.">
+<meta property="og:image" content="https://agaddas.github.io/CV/assets/img/gradcam.webp">
+<meta name="theme-color" content="#c8191f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23c8191f'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='900' font-size='18' fill='%23f1ece1' text-anchor='middle'%3EAG%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face {
+  font-family: "Archivo";
+  src: url("assets/fonts/archivo-latin.woff2") format("woff2");
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url("assets/fonts/plexmono-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plex Mono";
+  src: url("assets/fonts/plexmono-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  /* Couleurs d'un tract de manif : papier journal, encre, banderole */
+  --papier: #f1ece1;
+  --papier-fonce: #e6dfd0;
+  --encre: #161412;
+  --encre-douce: #514b44;
+  --banderole: #c8191f;
+  --banderole-lien: #a3141a;
+  --filet: #c9c0ae;
+
+  --mono: "Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --texte: "Archivo", "Helvetica Neue", Helvetica, sans-serif;
+  --marge: clamp(16px, 5vw, 64px);
+  --large: 1120px;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--papier);
+  color: var(--encre);
+  font-family: var(--texte);
+  font-stretch: 100%;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--banderole-lien); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 3px; }
+a:focus-visible, .bouton:focus-visible { outline: 3px solid var(--encre); outline-offset: 3px; }
+
+.colonne { max-width: var(--large); margin: 0 auto; padding: 0 var(--marge); }
+
+/* Bandeau d'en-tête façon journal militant */
+.ours {
+  border-bottom: 1px solid var(--encre);
+  font-family: var(--mono);
+  font-size: .8rem;
+}
+.ours .colonne {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  padding-top: .7rem; padding-bottom: .7rem;
+}
+.ours strong { font-weight: 600; }
+
+/* La banderole */
+.tete { padding: clamp(2rem, 6vw, 4.5rem) 0 2.5rem; overflow: hidden; }
+.banderole-zone { position: relative; }
+.banderole {
+  background: var(--banderole);
+  color: var(--papier);
+  margin: 0 calc(-1 * var(--marge));
+  padding: .15em var(--marge) .2em;
+  transform: rotate(-1.4deg);
+  font-weight: 900;
+  font-stretch: 62%;
+  font-size: clamp(3.6rem, 15vw, 11rem);
+  line-height: .92;
+  letter-spacing: -.01em;
+}
+.banderole span { display: block; }
+.tampon {
+  position: absolute;
+  right: 0;
+  bottom: -3.4rem;
+  transform: rotate(7deg);
+  border: 3px solid var(--encre);
+  outline: 1px solid var(--encre);
+  outline-offset: 3px;
+  background: var(--papier);
+  padding: .45rem .8rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: .82rem;
+  line-height: 1.3;
+  text-align: center;
+}
+.tampon b { display: block; font-size: 1.05rem; color: var(--banderole); }
+
+.chapo { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 4.6rem; }
+@media (min-width: 860px) {
+  .tampon { bottom: auto; top: 50%; right: 7%; transform: translateY(-50%) rotate(7deg); font-size: 1rem; padding: .7rem 1.2rem; }
+  .tampon b { font-size: 1.45rem; margin: .15rem 0; }
+  .chapo { margin-top: 3.2rem; }
+}
+.chapo h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4.2vw, 2.9rem);
+  line-height: 1.08;
+  font-weight: 800;
+  font-stretch: 80%;
+  max-width: 20ch;
+}
+.chapo h1 em { font-style: normal; background: var(--encre); color: var(--papier); padding: 0 .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.chapo p { margin: 0; max-width: 60ch; font-size: 1.15rem; }
+.chapo .qui { font-family: var(--mono); font-size: .9rem; color: var(--encre-douce); }
+
+.actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: .5rem; }
+.bouton {
+  display: inline-block;
+  padding: .7rem 1.1rem;
+  border: 2px solid var(--encre);
+  color: var(--encre);
+  text-decoration: none;
+  font-weight: 700;
+  font-stretch: 90%;
+  background: transparent;
+}
+.bouton:hover { background: var(--encre); color: var(--papier); }
+.bouton.plein { background: var(--banderole); border-color: var(--banderole); color: #fff; }
+.bouton.plein:hover { background: var(--encre); border-color: var(--encre); }
+
+@media (min-width: 860px) {
+  .chapo { grid-template-columns: 1.1fr 1fr; align-items: end; column-gap: 3rem; }
+  .chapo .actions { grid-column: 1 / -1; }
+}
+
+/* Sections : gros filet noir puis titre condensé */
+section { padding: 3rem 0 1rem; }
+.titre-section {
+  border-top: 6px solid var(--encre);
+  padding-top: .9rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .3rem 2rem;
+  margin-bottom: 1.5rem;
+}
+.titre-section h2 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  font-stretch: 68%;
+  line-height: 1;
+}
+.titre-section p { margin: 0; color: var(--encre-douce); max-width: 52ch; }
+@media (min-width: 860px) {
+  .titre-section { grid-template-columns: 1fr 1fr; align-items: end; }
+}
+
+/* Primitif unique : la ligne de registre */
+.registre { list-style: none; margin: 0; padding: 0; }
+.ligne {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .4rem 2rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--filet);
+}
+.ligne:first-child { border-top: 1px solid var(--filet); }
+.ligne .quand { font-family: var(--mono); font-size: .85rem; color: var(--encre-douce); }
+.ligne h3 { margin: 0; font-size: 1.3rem; font-weight: 800; font-stretch: 88%; line-height: 1.2; }
+.ligne .contexte { font-family: var(--mono); font-size: .82rem; color: var(--encre-douce); margin: .25rem 0 .6rem; }
+.ligne p { margin: 0 0 .5rem; max-width: 66ch; }
+.ligne .chiffre {
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--banderole);
+}
+.ligne .chiffre small { display: block; font-size: .78rem; font-weight: 400; color: var(--encre-douce); margin-top: .35rem; line-height: 1.35; }
+@media (max-width: 859px) {
+  .ligne .quand { order: -2; }
+  .ligne .chiffre { order: -1; margin-bottom: .6rem; }
+}
+@media (min-width: 860px) {
+  .ligne { grid-template-columns: 9rem 1fr 11rem; }
+  .ligne .chiffre { text-align: right; }
+}
+
+figure { margin: 1rem 0 .5rem; }
+figure img { border: 1px solid var(--encre); background: #fff; }
+figcaption { font-family: var(--mono); font-size: .8rem; color: var(--encre-douce); margin-top: .5rem; max-width: 70ch; }
+
+/* Revendications : deux colonnes de liste */
+.revendications { display: grid; grid-template-columns: 1fr; gap: 0 3rem; }
+.revendications h3 {
+  font-size: 1.05rem; font-weight: 800; margin: 0 0 .4rem;
+  padding-bottom: .4rem; border-bottom: 2px solid var(--encre);
+}
+.revendications ul { list-style: none; margin: 0 0 2rem; padding: 0; }
+.revendications li {
+  padding: .65rem 0 .65rem 1.6rem;
+  border-bottom: 1px solid var(--filet);
+  position: relative;
+}
+.revendications li::before {
+  content: "›";
+  position: absolute; left: .2rem; top: .5rem;
+  font-weight: 900; color: var(--banderole); font-size: 1.2rem;
+}
+@media (min-width: 860px) { .revendications { grid-template-columns: 1fr 1fr; } }
+
+/* Compétences : vrai tableau */
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; vertical-align: top; padding: .9rem 0; border-bottom: 1px solid var(--filet); }
+tr:first-child th, tr:first-child td { border-top: 1px solid var(--filet); }
+th { width: 30%; padding-right: 2rem; font-weight: 800; font-stretch: 88%; }
+td { color: var(--encre); }
+@media (max-width: 640px) {
+  table, tbody, tr, th, td { display: block; width: 100%; }
+  th { border-bottom: 0; padding-bottom: .1rem; }
+  td { padding-top: .2rem; }
+  tr:first-child td { border-top: 0; }
+}
+
+.langues { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 2rem; margin: 0; }
+.langues div { padding: .8rem 0; border-bottom: 1px solid var(--filet); }
+.langues dt { font-weight: 800; }
+.langues dd { margin: 0; font-family: var(--mono); font-size: .85rem; color: var(--encre-douce); }
+@media (min-width: 860px) { .langues { grid-template-columns: repeat(4, 1fr); } }
+
+/* Appel final */
+.appel { background: var(--encre); color: var(--papier); margin-top: 3rem; padding: 3rem 0; }
+.appel h2 { margin: 0 0 1rem; font-size: clamp(2rem, 6vw, 3.6rem); font-weight: 900; font-stretch: 68%; line-height: 1; }
+.appel p { max-width: 58ch; margin: 0 0 1.5rem; }
+.appel a { color: var(--papier); }
+.appel .coord { font-family: var(--mono); font-size: .95rem; line-height: 2; margin: 0; padding: 0; list-style: none; }
+.appel .bouton { border-color: var(--papier); color: var(--papier); }
+.appel .bouton:hover { background: var(--papier); color: var(--encre); }
+.appel .bouton.plein { background: var(--banderole); border-color: var(--banderole); color: #fff; }
+.appel .bouton.plein:hover { background: var(--papier); border-color: var(--papier); color: var(--encre); }
+.appel-grille { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+.qr { background: var(--papier); padding: .6rem; width: 168px; }
+.qr p { color: var(--encre); font-family: var(--mono); font-size: .7rem; margin: .3rem 0 0; text-align: center; }
+@media (min-width: 860px) { .appel-grille { grid-template-columns: 1fr auto; } }
+
+footer { font-family: var(--mono); font-size: .78rem; color: var(--encre-douce); padding: 1.4rem 0 2rem; }
+footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; }
+
+@media print {
+  .actions, .qr { display: none; }
+  .appel { background: none; color: var(--encre); }
+  .appel a { color: var(--encre); }
+}
+</style>
+</head>
+<body>
+
+<div class="ours">
+  <div class="colonne">
+    <span><strong>Tract n° 1</strong> · forum stages</span>
+    <span>Jeudi 5 novembre 2026, jour de grève générale</span>
+  </div>
+</div>
+
+<header class="tete">
+  <div class="colonne">
+    <div class="banderole-zone">
+      <div class="banderole" role="img" aria-label="Amine Gaddas"><span>Amine</span><span>Gaddas</span></div>
+      <div class="tampon" aria-hidden="true">Mobilisé pour<b>un stage IA</b>nov. 2026 › avr. 2027</div>
+    </div>
+
+    <div class="chapo">
+      <h1>Aujourd'hui tout le monde s'arrête. <em>Moi, je cherche du travail.</em></h1>
+      <div>
+        <p>Étudiant en 2ᵉ année de cycle ingénieur à l'EFREI Paris (Bac+4, majeure T2IA), je cherche un stage de 5 mois en IA générative ou en data science, de novembre 2026 à avril 2027.</p>
+        <p class="qui" style="margin-top:.8rem">Villejuif, Île-de-France · anglais bilingue (TOEIC 965)</p>
+      </div>
+      <div class="actions">
+        <a class="bouton plein" href="CV_Amine_GADDAS.pdf" download>Télécharger mon CV (PDF)</a>
+        <a class="bouton" href="mailto:agaddas3c@gmail.com?subject=Stage%20IA%20%2F%20data%20science">M'écrire</a>
+        <a class="bouton" href="https://www.linkedin.com/in/amine-gaddas-855416388" rel="noopener">LinkedIn</a>
+        <a class="bouton" href="https://github.com/agaddas" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="revendications">
+  <div class="colonne">
+    <div class="titre-section">
+      <h2>Cahier de revendications</h2>
+      <p>Une négociation honnête : ce que je demande, et ce que j'apporte en échange.</p>
+    </div>
+    <div class="revendications">
+      <div>
+        <h3>Je revendique</h3>
+        <ul>
+          <li>Un stage en IA générative ou en data science.</li>
+          <li>Cinq mois, de novembre 2026 à avril 2027.</li>
+          <li>En Île-de-France : j'habite à Villejuif.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>J'apporte</h3>
+        <ul>
+          <li>L'intégration d'un modèle de langage par API : sorties JSON structurées, garde-fous, évaluation des réponses.</li>
+          <li>Python, SQL, Scikit-learn et PyTorch, avec des projets publiés sur GitHub.</li>
+          <li>L'habitude de développer avec des agents IA de codage (Codex, Claude Code).</li>
+          <li>Un anglais bilingue (TOEIC 965) et un semestre d'études en Malaisie.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projets">
+  <div class="colonne">
+    <div class="titre-section">
+      <h2>Bilan des actions menées</h2>
+      <p>Quatre projets, avec leurs chiffres. Le code est en ligne pour vérifier.</p>
+    </div>
+    <ol class="registre">
+      <li class="ligne">
+        <div class="quand">2026</div>
+        <div>
+          <h3>Pet Breed Classifier : classification d'images en PyTorch</h3>
+          <div class="contexte">Python, PyTorch, torchvision, Grad-CAM · projet personnel</div>
+          <p>ResNet-34 pré-entraîné puis fine-tuné sur 37 races de chiens et de chats (Oxford-IIIT Pet). Il atteint 91,3 % top-1 et 0,91 de F1 macro, contre 31,3 % pour un CNN entraîné from scratch avec le même budget. Analyse des erreurs par classe et contrôle par Grad-CAM.</p>
+          <figure>
+            <img src="assets/img/gradcam.webp" width="1400" height="710" loading="lazy" alt="Grille Grad-CAM : quatre photos de chats abyssins et, en dessous, les cartes de chaleur qui montrent les zones utilisées par le modèle. Trois prédictions correctes, une erreur (Bengal).">
+            <figcaption>Grad-CAM sur des images de test. La troisième colonne est une erreur : le modèle prédit Bengal (40 %) en s'appuyant surtout sur la tête. Ce genre de cas guide l'analyse des erreurs.</figcaption>
+          </figure>
+          <p><a href="https://github.com/agaddas/pet-breed-classifier" rel="noopener">github.com/agaddas/pet-breed-classifier</a></p>
+        </div>
+        <div class="chiffre">91,3 %<small>top-1 sur 37 classes, contre 31,3 % sans pré-entraînement</small></div>
+      </li>
+
+      <li class="ligne">
+        <div class="quand">2025 › 2026</div>
+        <div>
+          <h3>Assistant radiologue IA : modèle multimodal intégré par API</h3>
+          <div class="contexte">Python, VLM (Llama via API), FastAPI, Streamlit · projet EFREI</div>
+          <p>Analyse de radiographies thoraciques (CheXpert) par un modèle de langage multimodal. Sorties JSON structurées, garde-fous qui écartent les images inexploitables, évaluation (accuracy, F1, sensibilité, spécificité) et calibration des seuils de confiance. Prototype pédagogique, pas un outil de diagnostic.</p>
+          <p><a href="https://github.com/agaddas/Assistant-Radiologue-IA" rel="noopener">github.com/agaddas/Assistant-Radiologue-IA</a></p>
+        </div>
+        <div class="chiffre">JSON<small>sorties structurées, garde-fous et seuils calibrés</small></div>
+      </li>
+
+      <li class="ligne">
+        <div class="quand">2026</div>
+        <div>
+          <h3>UFC Fight Prediction : machine learning</h3>
+          <div class="contexte">Python, Scikit-learn · projet APU, Malaisie</div>
+          <p>Classification binaire sur plus de 6 000 combats et 144 variables. Rééquilibrage par SMOTE, Random Forest optimisée par GridSearchCV (78 % d'accuracy, AUC 0,87), comparée à une régression logistique.</p>
+          <p><a href="https://github.com/agaddas/Projet-Intro-Machine-learning" rel="noopener">github.com/agaddas/Projet-Intro-Machine-learning</a></p>
+        </div>
+        <div class="chiffre">AUC 0,87<small>Random Forest, 6 000+ combats</small></div>
+      </li>
+
+      <li class="ligne">
+        <div class="quand">2026</div>
+        <div>
+          <h3>Agent cognitif artificiel, sans LLM dans la boucle de décision</h3>
+          <div class="contexte">Python, NumPy, pytest · projet personnel de recherche, piloté avec Codex</div>
+          <p>Un agent autonome dans un monde simulé : besoins, mémoire, modèle du monde, planification. Simulation déterministe, plus de 460 tests, prédictions écrites avant chaque expérience et ablations sur plusieurs graines. Au dernier pilote, le nombre de morts de l'agent a été divisé par deux.</p>
+        </div>
+        <div class="chiffre">460+<small>tests automatisés, simulation déterministe</small></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="colonne">
+    <div class="titre-section">
+      <h2>Outils de travail</h2>
+      <p>Certification Google AI Professional Certificate obtenue en février 2026.</p>
+    </div>
+    <table>
+      <tr><th scope="row">IA générative et agents</th><td>Intégration d'un LLM par API, conception de prompts (sorties JSON, garde-fous), tests et évaluation des réponses, calibration. Développement avec des agents IA de codage (Codex, Claude Code).</td></tr>
+      <tr><th scope="row">Data science et ML</th><td>Classification, régression, Random Forest, SMOTE, GridSearchCV, métriques (accuracy, F1, ROC-AUC) avec Scikit-learn. Deep learning en PyTorch : CNN, transfer learning, Grad-CAM.</td></tr>
+      <tr><th scope="row">Programmation et data</th><td>Python, SQL, Pandas, NumPy, Matplotlib, Jupyter, C#, Java, JavaScript. APIs REST, FastAPI, Streamlit. Notions de Spark et d'ETL.</td></tr>
+      <tr><th scope="row">Bases de données</th><td>MySQL, modélisation MCD/MPD, SQL avancé.</td></tr>
+      <tr><th scope="row">Outils</th><td>Git, Linux, VS Code, Google Colab, Microsoft Azure, Excel avancé, Office 365.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="parcours">
+  <div class="colonne">
+    <div class="titre-section">
+      <h2>Parcours</h2>
+      <p>Une expérience en entreprise, une prépa, une école d'ingénieurs et un semestre à l'étranger.</p>
+    </div>
+    <ol class="registre">
+      <li class="ligne">
+        <div class="quand">sept. 2025 › juil. 2028</div>
+        <div>
+          <h3>Cycle ingénieur, majeure T2IA (technologies immersives et IA)</h3>
+          <div class="contexte">EFREI Paris, Programme Grande École · Villejuif</div>
+          <p>Intelligence artificielle, computer vision, deep learning, big data et technologies immersives (XR).</p>
+        </div>
+        <div class="chiffre">Bac+4<small>en 2026-2027</small></div>
+      </li>
+      <li class="ligne">
+        <div class="quand">janv. › mai 2026</div>
+        <div>
+          <h3>Semestre d'échange international</h3>
+          <div class="contexte">Asia Pacific University (APU) · Kuala Lumpur, Malaisie</div>
+          <p>Cursus en anglais, dans une promotion de plus de 30 nationalités.</p>
+        </div>
+        <div class="chiffre">30+<small>nationalités</small></div>
+      </li>
+      <li class="ligne">
+        <div class="quand">juil. › août 2025</div>
+        <div>
+          <h3>Chargé de marketing digital, analyse de données (stage)</h3>
+          <div class="contexte">Stecia International · Google Analytics, Excel, PowerPoint</div>
+          <p>Suivi des KPIs sous Google Analytics et sur les réseaux sociaux, nettoyage des exports sous Excel, rapports en français et en anglais présentés à la direction.</p>
+        </div>
+        <div class="chiffre">FR / EN<small>rapports KPIs pour la direction</small></div>
+      </li>
+      <li class="ligne">
+        <div class="quand">sept. 2023 › juil. 2025</div>
+        <div>
+          <h3>Classe préparatoire MPSI-MP</h3>
+          <div class="contexte">ESPRIT Prépa · Tunis</div>
+          <p>Mathématiques, physique et algorithmique, en formation intensive.</p>
+        </div>
+        <div class="chiffre">MP<small>deux ans de prépa</small></div>
+      </li>
+      <li class="ligne">
+        <div class="quand">2023</div>
+        <div>
+          <h3>Baccalauréat général, mention très bien</h3>
+          <div class="contexte">Lycée René Descartes · Tunis</div>
+          <p>Spécialités mathématiques et physique-chimie.</p>
+        </div>
+        <div class="chiffre">TB<small>mention</small></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="langues">
+  <div class="colonne">
+    <div class="titre-section">
+      <h2>Langues et à côté</h2>
+      <p>Échecs pour la stratégie ; football, musculation et MMA pour le reste. Huit pays visités, dont la Malaisie, les Philippines, la Turquie et l'Italie.</p>
+    </div>
+    <dl class="langues">
+      <div><dt>Français</dt><dd>langue maternelle</dd></div>
+      <div><dt>Anglais</dt><dd>bilingue, TOEIC 965</dd></div>
+      <div><dt>Arabe</dt><dd>natif</dd></div>
+      <div><dt>Espagnol</dt><dd>intermédiaire</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<div class="appel" id="contact">
+  <div class="colonne appel-grille">
+    <div>
+      <h2>Le mouvement continue après le forum.</h2>
+      <p>Un poste de stagiaire en IA ou en data à pourvoir, ou simplement une question sur un projet ? Écrivez-moi, je réponds vite.</p>
+      <ul class="coord">
+        <li><a href="mailto:agaddas3c@gmail.com">agaddas3c@gmail.com</a></li>
+        <li><a href="tel:+33777130055">+33 7 77 13 00 55</a></li>
+        <li><a href="https://www.linkedin.com/in/amine-gaddas-855416388" rel="noopener">linkedin.com/in/amine-gaddas-855416388</a></li>
+        <li><a href="https://github.com/agaddas" rel="noopener">github.com/agaddas</a></li>
+      </ul>
+      <div class="actions" style="margin-top:1.5rem">
+        <a class="bouton plein" href="CV_Amine_GADDAS.pdf" download>Télécharger mon CV (PDF)</a>
+        <a class="bouton" href="mailto:agaddas3c@gmail.com?subject=Stage%20IA%20%2F%20data%20science">M'écrire</a>
+      </div>
+    </div>
+    <div class="qr">
+      <img src="assets/img/qr.svg" width="152" height="152" alt="QR code vers cette page">
+      <p>Faites passer le tract</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="colonne">
+    <span>Ne pas jeter sur la voie publique.</span>
+    <span>Imprimé par mes soins · hébergé sur GitHub Pages · ni cookie ni traceur</span>
+  </div>
+</footer>
+
+</body>
+</html>

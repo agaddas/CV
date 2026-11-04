@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Affiche QR · Amine Gaddas</title>
+<meta name="robots" content="noindex">
+<style>
+@font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-latin.woff2") format("woff2"); font-weight: 400 900; font-stretch: 62% 125%; }
+@font-face { font-family: "Plex Mono"; src: url("assets/fonts/plexmono-600.woff2") format("woff2"); font-weight: 600; }
+:root { --papier: #f1ece1; --encre: #161412; --banderole: #c8191f; }
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #ddd; }
+.feuille {
+  width: 210mm; height: 297mm; margin: 0 auto; overflow: hidden;
+  background: var(--papier); color: var(--encre);
+  font-family: "Archivo", Helvetica, sans-serif;
+  display: flex; flex-direction: column; padding: 16mm 0 12mm;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.haut { font-family: "Plex Mono", monospace; font-size: 11pt; padding: 0 16mm; display: flex; justify-content: space-between; border-bottom: 1px solid var(--encre); padding-bottom: 4mm; }
+.banderole { background: var(--banderole); color: var(--papier); margin: 14mm -4mm 0; padding: 4mm 20mm 5mm; transform: rotate(-1.6deg); font-weight: 900; font-stretch: 62%; font-size: 64pt; line-height: .95; }
+.slogan { padding: 0 16mm; margin: 12mm 0 0; font-weight: 800; font-stretch: 80%; font-size: 26pt; line-height: 1.1; }
+.slogan span { background: var(--encre); color: var(--papier); padding: 0 .15em; }
+.qr { margin: 10mm auto 0; width: 105mm; background: #fff; border: 2px solid var(--encre); padding: 4mm; }
+.qr img { width: 100%; display: block; }
+.url { text-align: center; font-family: "Plex Mono", monospace; font-size: 14pt; margin-top: 4mm; }
+.bas { margin-top: auto; padding: 0 16mm; font-family: "Plex Mono", monospace; font-size: 10pt; display: flex; justify-content: space-between; }
+@media print { html, body { background: none; } }
+</style>
+</head>
+<body>
+<div class="feuille">
+  <div class="haut"><span>Tract n° 1 · forum stages</span><span>5 novembre 2026, grève générale</span></div>
+  <div class="banderole">Amine Gaddas<br>cherche un stage IA</div>
+  <p class="slogan">Aujourd'hui tout le monde s'arrête. <span>Scannez, mon CV continue.</span></p>
+  <div class="qr"><img src="assets/img/qr.svg" alt="QR code vers agaddas.github.io/CV"></div>
+  <div class="url">agaddas.github.io/CV</div>
+  <div class="bas"><span>IA générative · data science · nov. 2026 › avr. 2027</span><span>EFREI Paris</span></div>
+</div>
+</body>
+</html>
