@@ -271,21 +271,21 @@ footer { font-family: var(--mono); font-size: .78rem; color: var(--encre-douce);
 footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; }
 
 /* Ouverture : l'AG vote la reprise, puis la banderole se déploie */
-:root { --t0: 2.45s; }
+:root { --t0: 5.8s; }
 .deja-vu { --t0: 0s; }
 .intro {
   position: fixed; inset: 0; z-index: 100;
   background: var(--encre); color: var(--papier);
   display: flex; align-items: center; justify-content: center;
   padding: 0 16px;
-  animation: intro-leve .6s cubic-bezier(.75, 0, .25, 1) 2.3s forwards;
+  animation: intro-leve .7s cubic-bezier(.75, 0, .25, 1) 5.6s forwards;
 }
 .deja-vu .intro { display: none; }
 .intro-texte { width: 39ch; max-width: 100%; position: relative; font-family: var(--mono); font-size: min(1.6rem, 3.6vw); line-height: 1.9; }
 .intro-texte p { margin: 0; overflow: hidden; white-space: nowrap; width: 0; }
-.intro-texte .l1 { color: #a49c90; animation: intro-tape .45s steps(28) .15s forwards; --n: 28ch; }
-.intro-texte .l2 { animation: intro-tape .6s steps(39) .65s forwards; --n: 39ch; }
-.intro-texte .l3 { animation: intro-tape .4s steps(32) 1.3s forwards; --n: 32ch; }
+.intro-texte .l1 { color: #a49c90; animation: intro-tape .9s steps(28) .3s forwards; --n: 28ch; }
+.intro-texte .l2 { animation: intro-tape 1.3s steps(39) 1.5s forwards; --n: 39ch; }
+.intro-texte .l3 { animation: intro-tape .9s steps(32) 3.1s forwards; --n: 32ch; }
 .intro-texte .l3 b { color: #ff5a5f; font-weight: 600; }
 .intro-tampon {
   position: absolute; right: -.5rem; bottom: -1.75em;
@@ -294,7 +294,7 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
   font-family: var(--texte); font-weight: 900; font-stretch: 70%;
   font-size: min(4.6rem, 11vw); line-height: 1; padding: .1em .3em .14em;
   rotate: -9deg; opacity: 0;
-  animation: tampon-frappe .32s cubic-bezier(.3, 0, .6, 1) 1.8s forwards;
+  animation: tampon-frappe .35s cubic-bezier(.3, 0, .6, 1) 4.3s forwards;
 }
 .intro-passer {
   position: absolute; right: 16px; bottom: 16px;
@@ -303,13 +303,13 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
 }
 .intro-passer:hover, .intro-passer:focus-visible { color: var(--papier); border-color: var(--papier); }
 
-.banderole { animation: banderole-deroule .7s cubic-bezier(.2, .8, .2, 1) var(--t0) both; }
+.banderole { animation: banderole-deroule .9s cubic-bezier(.2, .8, .2, 1) var(--t0) both; }
 .banderole span { animation: nom-monte .55s cubic-bezier(.2, .8, .2, 1) both; }
-.banderole span:first-child { animation-delay: calc(var(--t0) + .25s); }
-.banderole span:last-child { animation-delay: calc(var(--t0) + .38s); }
-.tampon { animation: tampon-frappe .3s cubic-bezier(.3, 0, .6, 1) calc(var(--t0) + .8s) both; }
-.banderole-zone { animation: secousse .28s ease-out calc(var(--t0) + 1.08s); }
-.chapo h1 em { animation: surligne .45s cubic-bezier(.6, 0, .2, 1) calc(var(--t0) + 1.2s) both; }
+.banderole span:first-child { animation-delay: calc(var(--t0) + .35s); }
+.banderole span:last-child { animation-delay: calc(var(--t0) + .55s); }
+.tampon { animation: tampon-frappe .3s cubic-bezier(.3, 0, .6, 1) calc(var(--t0) + 1.15s) both; }
+.banderole-zone { animation: secousse .28s ease-out calc(var(--t0) + 1.43s); }
+.chapo h1 em { animation: surligne .6s cubic-bezier(.6, 0, .2, 1) calc(var(--t0) + 1.6s) both; }
 
 @keyframes intro-tape { to { width: var(--n); } }
 @keyframes intro-leve { to { transform: translateY(-100%); visibility: hidden; } }
