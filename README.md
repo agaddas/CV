@@ -1,6 +1,6 @@
 # CV en ligne · Amine Gaddas
 
-Page GitHub Pages pour le forum stages du 5 novembre 2026 (thème : grève générale, version tract).
+Page GitHub Pages pour le forum stages du 12 novembre 2026 (thème : le pont du 11 novembre, version tract).
 
 - `index.html` : la page, sans dépendance externe (polices et image servies depuis `assets/`).
 - `CV_Amine_GADDAS.pdf` : le CV téléchargeable.

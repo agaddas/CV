@@ -259,6 +259,7 @@ td { color: var(--encre); }
 .appel-grille { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
 .qr { background: var(--papier); padding: .6rem; width: 168px; }
 .qr p { color: var(--encre); font-family: var(--mono); font-size: .7rem; margin: .3rem 0 0; text-align: center; }
+@media (max-width: 859px) { .qr { display: none; } }
 @media (min-width: 860px) { .appel-grille { grid-template-columns: 1fr auto; } }
 
 footer { font-family: var(--mono); font-size: .78rem; color: var(--encre-douce); padding: 1.4rem 0 2rem; }
@@ -276,7 +277,7 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
 <div class="ours">
   <div class="colonne">
     <span><strong>Tract n° 1</strong> · forum stages</span>
-    <span>Jeudi 5 novembre 2026, jour de grève générale</span>
+    <span>Jeudi 12 novembre 2026, jour de pont</span>
   </div>
 </div>
 
@@ -284,11 +285,11 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
   <div class="colonne">
     <div class="banderole-zone">
       <div class="banderole" role="img" aria-label="Amine Gaddas"><span>Amine</span><span>Gaddas</span></div>
-      <div class="tampon" aria-hidden="true">Mobilisé pour<b>un stage IA</b>nov. 2026 › avr. 2027</div>
+      <div class="tampon" aria-hidden="true">Pont<b>annulé</b>motif : stage IA</div>
     </div>
 
     <div class="chapo">
-      <h1>Aujourd'hui tout le monde s'arrête. <em>Moi, je cherche du travail.</em></h1>
+      <h1>Le 12, beaucoup font le pont. <em>Moi, je cherche un stage.</em></h1>
       <div>
         <p>Étudiant en 2ᵉ année de cycle ingénieur à l'EFREI Paris (Bac+4, majeure T2IA), je cherche un stage de 5 mois en IA générative ou en data science, de novembre 2026 à avril 2027.</p>
         <p class="qui" style="margin-top:.8rem">Villejuif, Île-de-France · anglais bilingue (TOEIC 965)</p>
@@ -410,7 +411,7 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
   <div class="colonne">
     <div class="titre-section">
       <h2>Parcours</h2>
-      <p>Une expérience en entreprise, une prépa, une école d'ingénieurs et un semestre à l'étranger.</p>
+      <p>Tunis, Paris, Kuala Lumpur : quelques ponts déjà construits entre une prépa, une école d'ingénieurs et un semestre à l'étranger.</p>
     </div>
     <ol class="registre">
       <li class="ligne">
@@ -482,7 +483,7 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
 <div class="appel" id="contact">
   <div class="colonne appel-grille">
     <div>
-      <h2>Le mouvement continue après le forum.</h2>
+      <h2>Le pont se termine dimanche. Ma candidature reste ouverte.</h2>
       <p>Un poste de stagiaire en IA ou en data à pourvoir, ou simplement une question sur un projet ? Écrivez-moi, je réponds vite.</p>
       <ul class="coord">
         <li><a href="mailto:agaddas3c@gmail.com">agaddas3c@gmail.com</a></li>
@@ -496,8 +497,8 @@ footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between
       </div>
     </div>
     <div class="qr">
-      <img src="assets/img/qr.svg" width="152" height="152" alt="QR code vers cette page">
-      <p>Faites passer le tract</p>
+      <img src="assets/img/qr.svg" width="152" height="152" alt="QR code pour ouvrir cette page sur un téléphone">
+      <p>Ouvrir sur votre téléphone</p>
     </div>
   </div>
 </div>
