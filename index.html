@@ -11,6 +11,11 @@
 <meta name="theme-color" content="#c8191f">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23c8191f'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='900' font-size='18' fill='%23f1ece1' text-anchor='middle'%3EAG%3C/text%3E%3C/svg%3E">
 <link rel="preload" href="assets/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/plexmono-600.woff2" as="font" type="font/woff2" crossorigin>
+<script>
+  // L'ouverture ne se joue qu'une fois par visite
+  try { if (sessionStorage.getItem("ag-intro")) document.documentElement.classList.add("deja-vu"); sessionStorage.setItem("ag-intro", "1"); } catch (e) {}
+</script>
 <style>
 @font-face {
   font-family: "Archivo";
@@ -127,7 +132,7 @@ a:focus-visible, .bouton:focus-visible { outline: 3px solid var(--encre); outlin
   font-stretch: 80%;
   max-width: 20ch;
 }
-.chapo h1 em { font-style: normal; background: var(--encre); color: var(--papier); padding: 0 .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.chapo h1 em { font-style: normal; background: linear-gradient(var(--encre), var(--encre)) no-repeat 0 0 / 100% 100%; color: var(--papier); padding: 0 .18em; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .chapo p { margin: 0; max-width: 60ch; font-size: 1.15rem; }
 .chapo .qui { font-family: var(--mono); font-size: .9rem; color: var(--encre-douce); }
 
@@ -265,14 +270,94 @@ td { color: var(--encre); }
 footer { font-family: var(--mono); font-size: .78rem; color: var(--encre-douce); padding: 1.4rem 0 2rem; }
 footer .colonne { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 2rem; }
 
+/* Ouverture : l'AG vote la reprise, puis la banderole se déploie */
+:root { --t0: 2.45s; }
+.deja-vu { --t0: 0s; }
+.intro {
+  position: fixed; inset: 0; z-index: 100;
+  background: var(--encre); color: var(--papier);
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 16px;
+  animation: intro-leve .6s cubic-bezier(.75, 0, .25, 1) 2.3s forwards;
+}
+.deja-vu .intro { display: none; }
+.intro-texte { width: 39ch; max-width: 100%; position: relative; font-family: var(--mono); font-size: min(1.6rem, 3.6vw); line-height: 1.9; }
+.intro-texte p { margin: 0; overflow: hidden; white-space: nowrap; width: 0; }
+.intro-texte .l1 { color: #a49c90; animation: intro-tape .45s steps(28) .15s forwards; --n: 28ch; }
+.intro-texte .l2 { animation: intro-tape .6s steps(39) .65s forwards; --n: 39ch; }
+.intro-texte .l3 { animation: intro-tape .4s steps(32) 1.3s forwards; --n: 32ch; }
+.intro-texte .l3 b { color: #ff5a5f; font-weight: 600; }
+.intro-tampon {
+  position: absolute; right: -.5rem; bottom: -1.75em;
+  border: 4px solid #ff5a5f; outline: 2px solid #ff5a5f; outline-offset: 4px;
+  color: #ff5a5f;
+  font-family: var(--texte); font-weight: 900; font-stretch: 70%;
+  font-size: min(4.6rem, 11vw); line-height: 1; padding: .1em .3em .14em;
+  rotate: -9deg; opacity: 0;
+  animation: tampon-frappe .32s cubic-bezier(.3, 0, .6, 1) 1.8s forwards;
+}
+.intro-passer {
+  position: absolute; right: 16px; bottom: 16px;
+  background: none; border: 1px solid #6d665d; color: #a49c90;
+  font-family: var(--mono); font-size: .8rem; padding: .4rem .8rem; cursor: pointer;
+}
+.intro-passer:hover, .intro-passer:focus-visible { color: var(--papier); border-color: var(--papier); }
+
+.banderole { animation: banderole-deroule .7s cubic-bezier(.2, .8, .2, 1) var(--t0) both; }
+.banderole span { animation: nom-monte .55s cubic-bezier(.2, .8, .2, 1) both; }
+.banderole span:first-child { animation-delay: calc(var(--t0) + .25s); }
+.banderole span:last-child { animation-delay: calc(var(--t0) + .38s); }
+.tampon { animation: tampon-frappe .3s cubic-bezier(.3, 0, .6, 1) calc(var(--t0) + .8s) both; }
+.banderole-zone { animation: secousse .28s ease-out calc(var(--t0) + 1.08s); }
+.chapo h1 em { animation: surligne .45s cubic-bezier(.6, 0, .2, 1) calc(var(--t0) + 1.2s) both; }
+
+@keyframes intro-tape { to { width: var(--n); } }
+@keyframes intro-leve { to { transform: translateY(-100%); visibility: hidden; } }
+@keyframes tampon-frappe {
+  0% { opacity: 0; scale: 2.6; }
+  70% { opacity: 1; scale: .94; }
+  100% { opacity: 1; scale: 1; }
+}
+@keyframes banderole-deroule { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes nom-monte { from { opacity: 0; translate: 0 .45em; } to { opacity: 1; translate: 0 0; } }
+@keyframes secousse {
+  0%, 100% { translate: 0 0; }
+  30% { translate: 0 5px; }
+  60% { translate: 0 -2px; }
+}
+@keyframes surligne { from { background-size: 0% 100%; } to { background-size: 100% 100%; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro { display: none; }
+  .banderole, .banderole span, .tampon, .banderole-zone, .chapo h1 em { animation: none; }
+}
+
 @media print {
-  .actions, .qr { display: none; }
+  .actions, .qr, .intro { display: none; }
   .appel { background: none; color: var(--encre); }
   .appel a { color: var(--encre); }
 }
 </style>
 </head>
 <body>
+
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro-texte">
+    <p class="l1">AG du jeudi 12 novembre 2026</p>
+    <p class="l2">Motion : reprise du travail en stage IA</p>
+    <p class="l3">Pour <b>1</b> · Contre 0 · Abstention 0</p>
+    <div class="intro-tampon">Adoptée</div>
+  </div>
+  <button class="intro-passer" type="button" tabindex="-1">Passer</button>
+</div>
+<script>
+  (function () {
+    var intro = document.getElementById("intro");
+    function passer() { document.documentElement.classList.add("deja-vu"); }
+    intro.addEventListener("click", passer);
+    document.addEventListener("keydown", passer, { once: true });
+  })();
+</script>
 
 <div class="ours">
   <div class="colonne">
